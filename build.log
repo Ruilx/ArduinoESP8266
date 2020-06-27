@@ -1,0 +1,607 @@
+===info ||| Progress {0} ||| [0.00]
+===info ||| Progress {0} ||| [33.33]
+===info ||| Using board '{0}' from platform in folder: {1} ||| [generic C%3A%5CUsers%5CRuilx%5CAppData%5CLocal%5CArduino15%5Cpackages%5Cesp8266%5Chardware%5Cesp8266%5C2.5.0]
+===info ||| Using core '{0}' from platform in folder: {1} ||| [esp8266 C%3A%5CUsers%5CRuilx%5CAppData%5CLocal%5CArduino15%5Cpackages%5Cesp8266%5Chardware%5Cesp8266%5C2.5.0]
+===warn ||| WARNING: Category '{0}' in library {1} is not valid. Setting to '{2}' ||| [sensors ML8511 Uncategorized]
+===warn ||| WARNING: Category '{0}' in library {1} is not valid. Setting to '{2}' ||| [Device ParPrinter Uncategorized]
+===warn ||| WARNING: Category '{0}' in library {1} is not valid. Setting to '{2}' ||| [Device Radar Uncategorized]
+===info ||| Progress {0} ||| [66.67]
+_id=generic
+build.arch=ESP8266
+build.board=ESP8266_GENERIC
+build.core=esp8266
+build.core.path=C:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0\cores\esp8266
+build.debug_level=
+build.debug_port=
+build.exception_flags=-fexceptions
+build.extra_flags=-DESP8266
+build.f_cpu=160000000L
+build.flash_flags=-DFLASHMODE_DIO
+build.flash_freq=40
+build.flash_ld=eagle.flash.4m.ld
+build.flash_mode=dio
+build.flash_size=4M
+build.flash_size_bytes=0x400000
+build.float=-u _printf_float -u _scanf_float
+build.fqbn=esp8266:esp8266:generic:xtal=160,vt=flash,exception=enabled,ResetMethod=nodemcu,CrystalFreq=26,FlashFreq=40,FlashMode=dio,eesz=4M,led=2,ip=lm2f,dbg=disabled,lvl=None____,wipe=none,baud=256000
+build.led=-DLED_BUILTIN=2
+build.lwip_flags=-DLWIP_OPEN_SRC -DTCP_MSS=536 -DLWIP_FEATURES=1 -DLWIP_IPV6=0
+build.lwip_include=lwip2/include
+build.lwip_lib=-llwip2-536-feat
+build.mcu=esp8266
+build.path=e:/MyQt/ArduinoESP8266/build
+build.project_name=WifiApi8266.ino
+build.rfcal_addr=0x3FC000
+build.source.path=E:\MyQt\ArduinoESP8266
+build.spiffs_pagesize=256
+build.stdcpp_lib=-lstdc++-exc
+build.system.path=C:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0\system
+build.variant=generic
+build.variant.path=C:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0\variants\generic
+build.vtable_flags=-DVTABLES_IN_FLASH
+build.warn_data_percentage=75
+compiler.S.cmd=xtensa-lx106-elf-gcc
+compiler.S.extra_flags=
+compiler.S.flags=-c -g -x assembler-with-cpp -MMD -mlongcalls
+compiler.ar.cmd=xtensa-lx106-elf-ar
+compiler.ar.extra_flags=
+compiler.ar.flags=cru
+compiler.as.cmd=xtensa-lx106-elf-as
+compiler.c.cmd=xtensa-lx106-elf-gcc
+compiler.c.elf.cmd=xtensa-lx106-elf-gcc
+compiler.c.elf.extra_flags=
+compiler.c.elf.flags=-g {compiler.warning_flags} -Os -nostdlib -Wl,--no-check-sections -u app_entry {build.float} -Wl,-static "-L{compiler.sdk.path}/lib" "-L{compiler.sdk.path}/ld" "-L{compiler.libc.path}/lib" "-T{build.flash_ld}" -Wl,--gc-sections -Wl,-wrap,system_restart_local -Wl,-wrap,spi_flash_read
+compiler.c.elf.libs=-lhal -lphy -lpp -lnet80211 {build.lwip_lib} -lwpa -lcrypto -lmain -lwps -lbearssl -laxtls -lespnow -lsmartconfig -lairkiss -lwpa2 {build.stdcpp_lib} -lm -lc -lgcc
+compiler.c.extra_flags=
+compiler.c.flags=-c {compiler.warning_flags} -Os -g -Wpointer-arith -Wno-implicit-function-declaration -Wl,-EL -fno-inline-functions -nostdlib -mlongcalls -mtext-section-literals -falign-functions=4 -MMD -std=gnu99 -ffunction-sections -fdata-sections {build.exception_flags}
+compiler.cpp.cmd=xtensa-lx106-elf-g++
+compiler.cpp.extra_flags=
+compiler.cpp.flags=-c {compiler.warning_flags} -Os -g -mlongcalls -mtext-section-literals -fno-rtti -falign-functions=4 -std=c++11 -MMD -ffunction-sections -fdata-sections {build.exception_flags}
+compiler.cpreprocessor.flags=-D__ets__ -DICACHE_FLASH -U__STRICT_ANSI__ "-I{compiler.sdk.path}/include" "-I{compiler.sdk.path}/{build.lwip_include}" "-I{compiler.libc.path}/include" "-I{build.path}/core"
+compiler.elf2hex.cmd=esptool
+compiler.elf2hex.extra_flags=
+compiler.elf2hex.flags=
+compiler.esptool.cmd=esptool.exe
+compiler.libc.path={runtime.platform.path}/tools/sdk/libc/xtensa-lx106-elf
+compiler.objcopy.eep.extra_flags=
+compiler.path={runtime.tools.xtensa-lx106-elf-gcc.path}/bin/
+compiler.sdk.path={runtime.platform.path}/tools/sdk
+compiler.size.cmd=xtensa-lx106-elf-size
+compiler.warning_flags=-w
+compiler.warning_flags.all=-Wall -Wextra
+compiler.warning_flags.default=
+compiler.warning_flags.more=-Wall
+compiler.warning_flags.none=-w
+extra.time.dst=0
+extra.time.local=1587517526
+extra.time.utc=1587488726
+extra.time.zone=28800
+ide_version=10802
+menu.CrystalFreq.26=26 MHz
+menu.CrystalFreq.40=40 MHz
+menu.CrystalFreq.40.build.extra_flags=-DF_CRYSTAL=40000000 -DESP8266
+menu.FlashFreq.40=40MHz
+menu.FlashFreq.40.build.flash_freq=40
+menu.FlashFreq.80=80MHz
+menu.FlashFreq.80.build.flash_freq=80
+menu.FlashMode.dio=DIO
+menu.FlashMode.dio.build.flash_flags=-DFLASHMODE_DIO
+menu.FlashMode.dio.build.flash_mode=dio
+menu.FlashMode.dout=DOUT (compatible)
+menu.FlashMode.dout.build.flash_flags=-DFLASHMODE_DOUT
+menu.FlashMode.dout.build.flash_mode=dout
+menu.FlashMode.qio=QIO (fast)
+menu.FlashMode.qio.build.flash_flags=-DFLASHMODE_QIO
+menu.FlashMode.qio.build.flash_mode=qio
+menu.FlashMode.qout=QOUT
+menu.FlashMode.qout.build.flash_flags=-DFLASHMODE_QOUT
+menu.FlashMode.qout.build.flash_mode=qout
+menu.ResetMethod.ck=ck
+menu.ResetMethod.ck.upload.resetmethod=ck
+menu.ResetMethod.dtrset=dtrset
+menu.ResetMethod.dtrset.upload.resetmethod=dtrset
+menu.ResetMethod.nodemcu=nodemcu
+menu.ResetMethod.nodemcu.upload.resetmethod=nodemcu
+menu.ResetMethod.none=none
+menu.ResetMethod.none.upload.resetmethod=none
+menu.baud.115200=115200
+menu.baud.115200.upload.speed=115200
+menu.baud.230400.linux=230400
+menu.baud.230400.macosx=230400
+menu.baud.230400.upload.speed=230400
+menu.baud.256000=256000
+menu.baud.256000.upload.speed=256000
+menu.baud.460800.linux=460800
+menu.baud.460800.macosx=460800
+menu.baud.460800.upload.speed=460800
+menu.baud.512000=512000
+menu.baud.512000.upload.speed=512000
+menu.baud.57600=57600
+menu.baud.57600.upload.speed=57600
+menu.baud.921600=921600
+menu.baud.921600.upload.speed=921600
+menu.baud.9600=9600
+menu.baud.9600.upload.speed=9600
+menu.dbg.Disabled=Disabled
+menu.dbg.Disabled.build.debug_port=
+menu.dbg.Serial=Serial
+menu.dbg.Serial.build.debug_port=-DDEBUG_ESP_PORT=Serial
+menu.dbg.Serial1=Serial1
+menu.dbg.Serial1.build.debug_port=-DDEBUG_ESP_PORT=Serial1
+menu.eesz.16M14M=16M (14M SPIFFS)
+menu.eesz.16M14M.build.flash_ld=eagle.flash.16m14m.ld
+menu.eesz.16M14M.build.flash_size=16M
+menu.eesz.16M14M.build.flash_size_bytes=0x1000000
+menu.eesz.16M14M.build.rfcal_addr=0xFFC000
+menu.eesz.16M14M.build.spiffs_blocksize=8192
+menu.eesz.16M14M.build.spiffs_end=0xFFB000
+menu.eesz.16M14M.build.spiffs_pagesize=256
+menu.eesz.16M14M.build.spiffs_start=0x200000
+menu.eesz.16M14M.upload.maximum_size=1044464
+menu.eesz.16M15M=16M (15M SPIFFS)
+menu.eesz.16M15M.build.flash_ld=eagle.flash.16m15m.ld
+menu.eesz.16M15M.build.flash_size=16M
+menu.eesz.16M15M.build.flash_size_bytes=0x1000000
+menu.eesz.16M15M.build.rfcal_addr=0xFFC000
+menu.eesz.16M15M.build.spiffs_blocksize=8192
+menu.eesz.16M15M.build.spiffs_end=0xFFB000
+menu.eesz.16M15M.build.spiffs_pagesize=256
+menu.eesz.16M15M.build.spiffs_start=0x100000
+menu.eesz.16M15M.upload.maximum_size=1044464
+menu.eesz.1M=1M (no SPIFFS)
+menu.eesz.1M.build.flash_ld=eagle.flash.1m.ld
+menu.eesz.1M.build.flash_size=1M
+menu.eesz.1M.build.flash_size_bytes=0x100000
+menu.eesz.1M.build.rfcal_addr=0xFC000
+menu.eesz.1M.build.spiffs_pagesize=256
+menu.eesz.1M.upload.maximum_size=1023984
+menu.eesz.1M128=1M (128K SPIFFS)
+menu.eesz.1M128.build.flash_ld=eagle.flash.1m128.ld
+menu.eesz.1M128.build.flash_size=1M
+menu.eesz.1M128.build.flash_size_bytes=0x100000
+menu.eesz.1M128.build.rfcal_addr=0xFC000
+menu.eesz.1M128.build.spiffs_blocksize=4096
+menu.eesz.1M128.build.spiffs_end=0xFB000
+menu.eesz.1M128.build.spiffs_pagesize=256
+menu.eesz.1M128.build.spiffs_start=0xDB000
+menu.eesz.1M128.upload.maximum_size=892912
+menu.eesz.1M144=1M (144K SPIFFS)
+menu.eesz.1M144.build.flash_ld=eagle.flash.1m144.ld
+menu.eesz.1M144.build.flash_size=1M
+menu.eesz.1M144.build.flash_size_bytes=0x100000
+menu.eesz.1M144.build.rfcal_addr=0xFC000
+menu.eesz.1M144.build.spiffs_blocksize=4096
+menu.eesz.1M144.build.spiffs_end=0xFB000
+menu.eesz.1M144.build.spiffs_pagesize=256
+menu.eesz.1M144.build.spiffs_start=0xD7000
+menu.eesz.1M144.upload.maximum_size=876528
+menu.eesz.1M160=1M (160K SPIFFS)
+menu.eesz.1M160.build.flash_ld=eagle.flash.1m160.ld
+menu.eesz.1M160.build.flash_size=1M
+menu.eesz.1M160.build.flash_size_bytes=0x100000
+menu.eesz.1M160.build.rfcal_addr=0xFC000
+menu.eesz.1M160.build.spiffs_blocksize=4096
+menu.eesz.1M160.build.spiffs_end=0xFB000
+menu.eesz.1M160.build.spiffs_pagesize=256
+menu.eesz.1M160.build.spiffs_start=0xD3000
+menu.eesz.1M160.upload.maximum_size=860144
+menu.eesz.1M192=1M (192K SPIFFS)
+menu.eesz.1M192.build.flash_ld=eagle.flash.1m192.ld
+menu.eesz.1M192.build.flash_size=1M
+menu.eesz.1M192.build.flash_size_bytes=0x100000
+menu.eesz.1M192.build.rfcal_addr=0xFC000
+menu.eesz.1M192.build.spiffs_blocksize=4096
+menu.eesz.1M192.build.spiffs_end=0xFB000
+menu.eesz.1M192.build.spiffs_pagesize=256
+menu.eesz.1M192.build.spiffs_start=0xCB000
+menu.eesz.1M192.upload.maximum_size=827376
+menu.eesz.1M256=1M (256K SPIFFS)
+menu.eesz.1M256.build.flash_ld=eagle.flash.1m256.ld
+menu.eesz.1M256.build.flash_size=1M
+menu.eesz.1M256.build.flash_size_bytes=0x100000
+menu.eesz.1M256.build.rfcal_addr=0xFC000
+menu.eesz.1M256.build.spiffs_blocksize=4096
+menu.eesz.1M256.build.spiffs_end=0xFB000
+menu.eesz.1M256.build.spiffs_pagesize=256
+menu.eesz.1M256.build.spiffs_start=0xBB000
+menu.eesz.1M256.upload.maximum_size=761840
+menu.eesz.1M512=1M (512K SPIFFS)
+menu.eesz.1M512.build.flash_ld=eagle.flash.1m512.ld
+menu.eesz.1M512.build.flash_size=1M
+menu.eesz.1M512.build.flash_size_bytes=0x100000
+menu.eesz.1M512.build.rfcal_addr=0xFC000
+menu.eesz.1M512.build.spiffs_blocksize=4096
+menu.eesz.1M512.build.spiffs_end=0xFB000
+menu.eesz.1M512.build.spiffs_pagesize=256
+menu.eesz.1M512.build.spiffs_start=0x7B000
+menu.eesz.1M512.upload.maximum_size=499696
+menu.eesz.1M64=1M (64K SPIFFS)
+menu.eesz.1M64.build.flash_ld=eagle.flash.1m64.ld
+menu.eesz.1M64.build.flash_size=1M
+menu.eesz.1M64.build.flash_size_bytes=0x100000
+menu.eesz.1M64.build.rfcal_addr=0xFC000
+menu.eesz.1M64.build.spiffs_blocksize=4096
+menu.eesz.1M64.build.spiffs_end=0xFB000
+menu.eesz.1M64.build.spiffs_pagesize=256
+menu.eesz.1M64.build.spiffs_start=0xEB000
+menu.eesz.1M64.upload.maximum_size=958448
+menu.eesz.2M=2M (no SPIFFS)
+menu.eesz.2M.build.flash_ld=eagle.flash.2m.ld
+menu.eesz.2M.build.flash_size=2M
+menu.eesz.2M.build.flash_size_bytes=0x200000
+menu.eesz.2M.build.rfcal_addr=0x1FC000
+menu.eesz.2M.build.spiffs_pagesize=256
+menu.eesz.2M.upload.maximum_size=1044464
+menu.eesz.2M128=2M (128K SPIFFS)
+menu.eesz.2M128.build.flash_ld=eagle.flash.2m128.ld
+menu.eesz.2M128.build.flash_size=2M
+menu.eesz.2M128.build.flash_size_bytes=0x200000
+menu.eesz.2M128.build.rfcal_addr=0x1FC000
+menu.eesz.2M128.build.spiffs_blocksize=4096
+menu.eesz.2M128.build.spiffs_end=0x1FB000
+menu.eesz.2M128.build.spiffs_pagesize=256
+menu.eesz.2M128.build.spiffs_start=0x1E0000
+menu.eesz.2M128.upload.maximum_size=1044464
+menu.eesz.2M1M=2M (1M SPIFFS)
+menu.eesz.2M1M.build.flash_ld=eagle.flash.2m1m.ld
+menu.eesz.2M1M.build.flash_size=2M
+menu.eesz.2M1M.build.flash_size_bytes=0x200000
+menu.eesz.2M1M.build.rfcal_addr=0x1FC000
+menu.eesz.2M1M.build.spiffs_blocksize=8192
+menu.eesz.2M1M.build.spiffs_end=0x1FB000
+menu.eesz.2M1M.build.spiffs_pagesize=256
+menu.eesz.2M1M.build.spiffs_start=0x100000
+menu.eesz.2M1M.upload.maximum_size=1044464
+menu.eesz.2M256=2M (256K SPIFFS)
+menu.eesz.2M256.build.flash_ld=eagle.flash.2m256.ld
+menu.eesz.2M256.build.flash_size=2M
+menu.eesz.2M256.build.flash_size_bytes=0x200000
+menu.eesz.2M256.build.rfcal_addr=0x1FC000
+menu.eesz.2M256.build.spiffs_blocksize=4096
+menu.eesz.2M256.build.spiffs_end=0x1FB000
+menu.eesz.2M256.build.spiffs_pagesize=256
+menu.eesz.2M256.build.spiffs_start=0x1C0000
+menu.eesz.2M256.upload.maximum_size=1044464
+menu.eesz.2M512=2M (512K SPIFFS)
+menu.eesz.2M512.build.flash_ld=eagle.flash.2m512.ld
+menu.eesz.2M512.build.flash_size=2M
+menu.eesz.2M512.build.flash_size_bytes=0x200000
+menu.eesz.2M512.build.rfcal_addr=0x1FC000
+menu.eesz.2M512.build.spiffs_blocksize=8192
+menu.eesz.2M512.build.spiffs_end=0x1FB000
+menu.eesz.2M512.build.spiffs_pagesize=256
+menu.eesz.2M512.build.spiffs_start=0x180000
+menu.eesz.2M512.upload.maximum_size=1044464
+menu.eesz.4M=4M (no SPIFFS)
+menu.eesz.4M.build.flash_ld=eagle.flash.4m.ld
+menu.eesz.4M.build.flash_size=4M
+menu.eesz.4M.build.flash_size_bytes=0x400000
+menu.eesz.4M.build.rfcal_addr=0x3FC000
+menu.eesz.4M.build.spiffs_pagesize=256
+menu.eesz.4M.upload.maximum_size=1044464
+menu.eesz.4M1M=4M (1M SPIFFS)
+menu.eesz.4M1M.build.flash_ld=eagle.flash.4m1m.ld
+menu.eesz.4M1M.build.flash_size=4M
+menu.eesz.4M1M.build.flash_size_bytes=0x400000
+menu.eesz.4M1M.build.rfcal_addr=0x3FC000
+menu.eesz.4M1M.build.spiffs_blocksize=8192
+menu.eesz.4M1M.build.spiffs_end=0x3FB000
+menu.eesz.4M1M.build.spiffs_pagesize=256
+menu.eesz.4M1M.build.spiffs_start=0x300000
+menu.eesz.4M1M.upload.maximum_size=1044464
+menu.eesz.4M2M=4M (2M SPIFFS)
+menu.eesz.4M2M.build.flash_ld=eagle.flash.4m2m.ld
+menu.eesz.4M2M.build.flash_size=4M
+menu.eesz.4M2M.build.flash_size_bytes=0x400000
+menu.eesz.4M2M.build.rfcal_addr=0x3FC000
+menu.eesz.4M2M.build.spiffs_blocksize=8192
+menu.eesz.4M2M.build.spiffs_end=0x3FB000
+menu.eesz.4M2M.build.spiffs_pagesize=256
+menu.eesz.4M2M.build.spiffs_start=0x200000
+menu.eesz.4M2M.upload.maximum_size=1044464
+menu.eesz.4M3M=4M (3M SPIFFS)
+menu.eesz.4M3M.build.flash_ld=eagle.flash.4m3m.ld
+menu.eesz.4M3M.build.flash_size=4M
+menu.eesz.4M3M.build.flash_size_bytes=0x400000
+menu.eesz.4M3M.build.rfcal_addr=0x3FC000
+menu.eesz.4M3M.build.spiffs_blocksize=8192
+menu.eesz.4M3M.build.spiffs_end=0x3FB000
+menu.eesz.4M3M.build.spiffs_pagesize=256
+menu.eesz.4M3M.build.spiffs_start=0x100000
+menu.eesz.4M3M.upload.maximum_size=1044464
+menu.eesz.512K=512K (no SPIFFS)
+menu.eesz.512K.build.flash_ld=eagle.flash.512k.ld
+menu.eesz.512K.build.flash_size=512K
+menu.eesz.512K.build.flash_size_bytes=0x80000
+menu.eesz.512K.build.rfcal_addr=0x7C000
+menu.eesz.512K.build.spiffs_pagesize=256
+menu.eesz.512K.upload.maximum_size=499696
+menu.eesz.512K128=512K (128K SPIFFS)
+menu.eesz.512K128.build.flash_ld=eagle.flash.512k128.ld
+menu.eesz.512K128.build.flash_size=512K
+menu.eesz.512K128.build.flash_size_bytes=0x80000
+menu.eesz.512K128.build.rfcal_addr=0x7C000
+menu.eesz.512K128.build.spiffs_blocksize=4096
+menu.eesz.512K128.build.spiffs_end=0x7B000
+menu.eesz.512K128.build.spiffs_pagesize=256
+menu.eesz.512K128.build.spiffs_start=0x5B000
+menu.eesz.512K128.upload.maximum_size=368624
+menu.eesz.512K32=512K (32K SPIFFS)
+menu.eesz.512K32.build.flash_ld=eagle.flash.512k32.ld
+menu.eesz.512K32.build.flash_size=512K
+menu.eesz.512K32.build.flash_size_bytes=0x80000
+menu.eesz.512K32.build.rfcal_addr=0x7C000
+menu.eesz.512K32.build.spiffs_blocksize=4096
+menu.eesz.512K32.build.spiffs_end=0x7B000
+menu.eesz.512K32.build.spiffs_pagesize=256
+menu.eesz.512K32.build.spiffs_start=0x73000
+menu.eesz.512K32.upload.maximum_size=466928
+menu.eesz.512K64=512K (64K SPIFFS)
+menu.eesz.512K64.build.flash_ld=eagle.flash.512k64.ld
+menu.eesz.512K64.build.flash_size=512K
+menu.eesz.512K64.build.flash_size_bytes=0x80000
+menu.eesz.512K64.build.rfcal_addr=0x7C000
+menu.eesz.512K64.build.spiffs_blocksize=4096
+menu.eesz.512K64.build.spiffs_end=0x7B000
+menu.eesz.512K64.build.spiffs_pagesize=256
+menu.eesz.512K64.build.spiffs_start=0x6B000
+menu.eesz.512K64.upload.maximum_size=434160
+menu.eesz.8M6M=8M (6M SPIFFS)
+menu.eesz.8M6M.build.flash_ld=eagle.flash.8m6m.ld
+menu.eesz.8M6M.build.flash_size=8M
+menu.eesz.8M6M.build.flash_size_bytes=0x800000
+menu.eesz.8M6M.build.rfcal_addr=0x7FC000
+menu.eesz.8M6M.build.spiffs_blocksize=8192
+menu.eesz.8M6M.build.spiffs_end=0x7FB000
+menu.eesz.8M6M.build.spiffs_pagesize=256
+menu.eesz.8M6M.build.spiffs_start=0x200000
+menu.eesz.8M6M.upload.maximum_size=1044464
+menu.eesz.8M7M=8M (7M SPIFFS)
+menu.eesz.8M7M.build.flash_ld=eagle.flash.8m7m.ld
+menu.eesz.8M7M.build.flash_size=8M
+menu.eesz.8M7M.build.flash_size_bytes=0x800000
+menu.eesz.8M7M.build.rfcal_addr=0x7FC000
+menu.eesz.8M7M.build.spiffs_blocksize=8192
+menu.eesz.8M7M.build.spiffs_end=0x7FB000
+menu.eesz.8M7M.build.spiffs_pagesize=256
+menu.eesz.8M7M.build.spiffs_start=0x100000
+menu.eesz.8M7M.upload.maximum_size=1044464
+menu.exception.disabled=Disabled
+menu.exception.disabled.build.exception_flags=-fno-exceptions
+menu.exception.disabled.build.stdcpp_lib=-lstdc++
+menu.exception.enabled=Enabled
+menu.exception.enabled.build.exception_flags=-fexceptions
+menu.exception.enabled.build.stdcpp_lib=-lstdc++-exc
+menu.ip.hb1=v1.4 Higher Bandwidth
+menu.ip.hb1.build.lwip_flags=-DLWIP_OPEN_SRC
+menu.ip.hb1.build.lwip_lib=-llwip_gcc
+menu.ip.hb2f=v2 Higher Bandwidth
+menu.ip.hb2f.build.lwip_flags=-DLWIP_OPEN_SRC -DTCP_MSS=1460 -DLWIP_FEATURES=1 -DLWIP_IPV6=0
+menu.ip.hb2f.build.lwip_include=lwip2/include
+menu.ip.hb2f.build.lwip_lib=-llwip2-1460-feat
+menu.ip.hb2n=v2 Higher Bandwidth (no features)
+menu.ip.hb2n.build.lwip_flags=-DLWIP_OPEN_SRC -DTCP_MSS=1460 -DLWIP_FEATURES=0 -DLWIP_IPV6=0
+menu.ip.hb2n.build.lwip_include=lwip2/include
+menu.ip.hb2n.build.lwip_lib=-llwip2-1460
+menu.ip.hb6f=v2 IPv6 Higher Bandwidth
+menu.ip.hb6f.build.lwip_flags=-DLWIP_OPEN_SRC -DTCP_MSS=1460 -DLWIP_FEATURES=1 -DLWIP_IPV6=1
+menu.ip.hb6f.build.lwip_include=lwip2/include
+menu.ip.hb6f.build.lwip_lib=-llwip6-1460-feat
+menu.ip.lm2f=v2 Lower Memory
+menu.ip.lm2f.build.lwip_flags=-DLWIP_OPEN_SRC -DTCP_MSS=536 -DLWIP_FEATURES=1 -DLWIP_IPV6=0
+menu.ip.lm2f.build.lwip_include=lwip2/include
+menu.ip.lm2f.build.lwip_lib=-llwip2-536-feat
+menu.ip.lm2n=v2 Lower Memory (no features)
+menu.ip.lm2n.build.lwip_flags=-DLWIP_OPEN_SRC -DTCP_MSS=536 -DLWIP_FEATURES=0 -DLWIP_IPV6=0
+menu.ip.lm2n.build.lwip_include=lwip2/include
+menu.ip.lm2n.build.lwip_lib=-llwip2-536
+menu.ip.lm6f=v2 IPv6 Lower Memory
+menu.ip.lm6f.build.lwip_flags=-DLWIP_OPEN_SRC -DTCP_MSS=536 -DLWIP_FEATURES=1 -DLWIP_IPV6=1
+menu.ip.lm6f.build.lwip_include=lwip2/include
+menu.ip.lm6f.build.lwip_lib=-llwip6-536-feat
+menu.ip.src=v1.4 Compile from source
+menu.ip.src.build.lwip_flags=-DLWIP_OPEN_SRC
+menu.ip.src.build.lwip_lib=-llwip_src
+menu.ip.src.recipe.hooks.sketch.prebuild.1.pattern=make -C "{runtime.platform.path}/tools/sdk/lwip/src" install TOOLS_PATH="{runtime.tools.xtensa-lx106-elf-gcc.path}/bin/xtensa-lx106-elf-"
+menu.led.0=0
+menu.led.0.build.led=-DLED_BUILTIN=0
+menu.led.1=1
+menu.led.1.build.led=-DLED_BUILTIN=1
+menu.led.10=10
+menu.led.10.build.led=-DLED_BUILTIN=10
+menu.led.11=11
+menu.led.11.build.led=-DLED_BUILTIN=11
+menu.led.12=12
+menu.led.12.build.led=-DLED_BUILTIN=12
+menu.led.13=13
+menu.led.13.build.led=-DLED_BUILTIN=13
+menu.led.14=14
+menu.led.14.build.led=-DLED_BUILTIN=14
+menu.led.15=15
+menu.led.15.build.led=-DLED_BUILTIN=15
+menu.led.2=2
+menu.led.2.build.led=-DLED_BUILTIN=2
+menu.led.3=3
+menu.led.3.build.led=-DLED_BUILTIN=3
+menu.led.4=4
+menu.led.4.build.led=-DLED_BUILTIN=4
+menu.led.5=5
+menu.led.5.build.led=-DLED_BUILTIN=5
+menu.led.6=6
+menu.led.6.build.led=-DLED_BUILTIN=6
+menu.led.7=7
+menu.led.7.build.led=-DLED_BUILTIN=7
+menu.led.8=8
+menu.led.8.build.led=-DLED_BUILTIN=8
+menu.led.9=9
+menu.led.9.build.led=-DLED_BUILTIN=9
+menu.lvl.CORE=CORE
+menu.lvl.CORE.build.debug_level=-DDEBUG_ESP_CORE
+menu.lvl.COREWIFIHTTP_UPDATEUPDATEROTAOOM=CORE+WIFI+HTTP_UPDATE+UPDATER+OTA+OOM
+menu.lvl.COREWIFIHTTP_UPDATEUPDATEROTAOOM.build.debug_level=-DDEBUG_ESP_CORE -DDEBUG_ESP_WIFI -DDEBUG_ESP_HTTP_UPDATE -DDEBUG_ESP_UPDATER -DDEBUG_ESP_OTA -DDEBUG_ESP_OOM
+menu.lvl.HTTP_CLIENT=HTTP_CLIENT
+menu.lvl.HTTP_CLIENT.build.debug_level=-DDEBUG_ESP_HTTP_CLIENT
+menu.lvl.HTTP_CLIENTHTTP_SERVER=HTTP_CLIENT+HTTP_SERVER
+menu.lvl.HTTP_CLIENTHTTP_SERVER.build.debug_level=-DDEBUG_ESP_HTTP_CLIENT -DDEBUG_ESP_HTTP_SERVER
+menu.lvl.HTTP_SERVER=HTTP_SERVER
+menu.lvl.HTTP_SERVER.build.debug_level=-DDEBUG_ESP_HTTP_SERVER
+menu.lvl.HTTP_UPDATE=HTTP_UPDATE
+menu.lvl.HTTP_UPDATE.build.debug_level=-DDEBUG_ESP_HTTP_UPDATE
+menu.lvl.NoAssert-NDEBUG=NoAssert-NDEBUG
+menu.lvl.NoAssert-NDEBUG.build.debug_level=-DNDEBUG
+menu.lvl.None____=None
+menu.lvl.None____.build.debug_level=
+menu.lvl.OOM=OOM
+menu.lvl.OOM.build.debug_level=-DDEBUG_ESP_OOM
+menu.lvl.OTA=OTA
+menu.lvl.OTA.build.debug_level=-DDEBUG_ESP_OTA
+menu.lvl.SSL=SSL
+menu.lvl.SSL.build.debug_level=-DDEBUG_ESP_SSL
+menu.lvl.SSLHTTP_CLIENT=SSL+HTTP_CLIENT
+menu.lvl.SSLHTTP_CLIENT.build.debug_level=-DDEBUG_ESP_SSL -DDEBUG_ESP_HTTP_CLIENT
+menu.lvl.SSLHTTP_CLIENTHTTP_SERVER=SSL+HTTP_CLIENT+HTTP_SERVER
+menu.lvl.SSLHTTP_CLIENTHTTP_SERVER.build.debug_level=-DDEBUG_ESP_SSL -DDEBUG_ESP_HTTP_CLIENT -DDEBUG_ESP_HTTP_SERVER
+menu.lvl.SSLHTTP_SERVER=SSL+HTTP_SERVER
+menu.lvl.SSLHTTP_SERVER.build.debug_level=-DDEBUG_ESP_SSL -DDEBUG_ESP_HTTP_SERVER
+menu.lvl.SSLTLS_MEM=SSL+TLS_MEM
+menu.lvl.SSLTLS_MEM.build.debug_level=-DDEBUG_ESP_SSL -DDEBUG_ESP_TLS_MEM
+menu.lvl.SSLTLS_MEMHTTP_CLIENT=SSL+TLS_MEM+HTTP_CLIENT
+menu.lvl.SSLTLS_MEMHTTP_CLIENT.build.debug_level=-DDEBUG_ESP_SSL -DDEBUG_ESP_TLS_MEM -DDEBUG_ESP_HTTP_CLIENT
+menu.lvl.SSLTLS_MEMHTTP_CLIENTHTTP_SERVER=SSL+TLS_MEM+HTTP_CLIENT+HTTP_SERVER
+menu.lvl.SSLTLS_MEMHTTP_CLIENTHTTP_SERVER.build.debug_level=-DDEBUG_ESP_SSL -DDEBUG_ESP_TLS_MEM -DDEBUG_ESP_HTTP_CLIENT -DDEBUG_ESP_HTTP_SERVER
+menu.lvl.SSLTLS_MEMHTTP_CLIENTHTTP_SERVERCOREWIFIHTTP_UPDATEUPDATEROTAOOM=SSL+TLS_MEM+HTTP_CLIENT+HTTP_SERVER+CORE+WIFI+HTTP_UPDATE+UPDATER+OTA+OOM
+menu.lvl.SSLTLS_MEMHTTP_CLIENTHTTP_SERVERCOREWIFIHTTP_UPDATEUPDATEROTAOOM.build.debug_level=-DDEBUG_ESP_SSL -DDEBUG_ESP_TLS_MEM -DDEBUG_ESP_HTTP_CLIENT -DDEBUG_ESP_HTTP_SERVER -DDEBUG_ESP_CORE -DDEBUG_ESP_WIFI -DDEBUG_ESP_HTTP_UPDATE -DDEBUG_ESP_UPDATER -DDEBUG_ESP_OTA -DDEBUG_ESP_OOM
+menu.lvl.SSLTLS_MEMHTTP_SERVER=SSL+TLS_MEM+HTTP_SERVER
+menu.lvl.SSLTLS_MEMHTTP_SERVER.build.debug_level=-DDEBUG_ESP_SSL -DDEBUG_ESP_TLS_MEM -DDEBUG_ESP_HTTP_SERVER
+menu.lvl.TLS_MEM=TLS_MEM
+menu.lvl.TLS_MEM.build.debug_level=-DDEBUG_ESP_TLS_MEM
+menu.lvl.TLS_MEMHTTP_CLIENT=TLS_MEM+HTTP_CLIENT
+menu.lvl.TLS_MEMHTTP_CLIENT.build.debug_level=-DDEBUG_ESP_TLS_MEM -DDEBUG_ESP_HTTP_CLIENT
+menu.lvl.TLS_MEMHTTP_CLIENTHTTP_SERVER=TLS_MEM+HTTP_CLIENT+HTTP_SERVER
+menu.lvl.TLS_MEMHTTP_CLIENTHTTP_SERVER.build.debug_level=-DDEBUG_ESP_TLS_MEM -DDEBUG_ESP_HTTP_CLIENT -DDEBUG_ESP_HTTP_SERVER
+menu.lvl.TLS_MEMHTTP_SERVER=TLS_MEM+HTTP_SERVER
+menu.lvl.TLS_MEMHTTP_SERVER.build.debug_level=-DDEBUG_ESP_TLS_MEM -DDEBUG_ESP_HTTP_SERVER
+menu.lvl.UPDATER=UPDATER
+menu.lvl.UPDATER.build.debug_level=-DDEBUG_ESP_UPDATER
+menu.lvl.WIFI=WIFI
+menu.lvl.WIFI.build.debug_level=-DDEBUG_ESP_WIFI
+menu.vt.flash=Flash
+menu.vt.flash.build.vtable_flags=-DVTABLES_IN_FLASH
+menu.vt.heap=Heap
+menu.vt.heap.build.vtable_flags=-DVTABLES_IN_DRAM
+menu.vt.iram=IRAM
+menu.vt.iram.build.vtable_flags=-DVTABLES_IN_IRAM
+menu.wipe.all=All Flash Contents
+menu.wipe.all.upload.erase_cmd=-ca 0x0 -cz "{build.flash_size_bytes}"
+menu.wipe.none=Only Sketch
+menu.wipe.none.upload.erase_cmd=
+menu.wipe.sdk=Sketch + WiFi Settings
+menu.wipe.sdk.upload.erase_cmd=-ca "{build.rfcal_addr}" -cz 0x4000
+menu.xtal.160=160 MHz
+menu.xtal.160.build.f_cpu=160000000L
+menu.xtal.80=80 MHz
+menu.xtal.80.build.f_cpu=80000000L
+name=Generic ESP8266 Module
+preproc.macros.flags=-w -x c++ -E -CC
+recipe.S.o.pattern="{compiler.path}{compiler.c.cmd}" {compiler.cpreprocessor.flags} {compiler.S.flags} -DF_CPU={build.f_cpu} {build.lwip_flags} {build.debug_port} {build.debug_level} -DARDUINO={runtime.ide.version} -DARDUINO_{build.board} -DARDUINO_ARCH_{build.arch} -DARDUINO_BOARD="{build.board}" {build.led} {build.flash_flags} {compiler.c.extra_flags} {build.extra_flags} {includes} "{source_file}" -o "{object_file}"
+recipe.ar.pattern="{compiler.path}{compiler.ar.cmd}" {compiler.ar.flags} {compiler.ar.extra_flags} "{archive_file_path}" "{object_file}"
+recipe.c.combine.pattern="{compiler.path}{compiler.c.elf.cmd}" {build.exception_flags} -Wl,-Map "-Wl,{build.path}/{build.project_name}.map" {compiler.c.elf.flags} {compiler.c.elf.extra_flags} -o "{build.path}/{build.project_name}.elf" -Wl,--start-group {object_files} "{archive_file_path}" {compiler.c.elf.libs} -Wl,--end-group  "-L{build.path}"
+recipe.c.o.pattern="{compiler.path}{compiler.c.cmd}" {compiler.cpreprocessor.flags} {compiler.c.flags} -DF_CPU={build.f_cpu} {build.lwip_flags} {build.debug_port} {build.debug_level} -DARDUINO={runtime.ide.version} -DARDUINO_{build.board} -DARDUINO_ARCH_{build.arch} -DARDUINO_BOARD="{build.board}" {build.led} {build.flash_flags} {compiler.c.extra_flags} {build.extra_flags} {includes} "{source_file}" -o "{object_file}"
+recipe.cpp.o.pattern="{compiler.path}{compiler.cpp.cmd}" {compiler.cpreprocessor.flags} {compiler.cpp.flags} -DF_CPU={build.f_cpu} {build.lwip_flags} {build.debug_port} {build.debug_level} -DARDUINO={runtime.ide.version} -DARDUINO_{build.board} -DARDUINO_ARCH_{build.arch} -DARDUINO_BOARD="{build.board}" {build.led} {build.flash_flags} {compiler.cpp.extra_flags} {build.extra_flags} {includes} "{source_file}" -o "{object_file}"
+recipe.hooks.core.prebuild.1.pattern=cmd.exe /c rem cannot sign on windows
+recipe.hooks.linking.prelink.1.pattern="{compiler.path}{compiler.c.cmd}" -CC -E -P {build.vtable_flags} "{runtime.platform.path}/tools/sdk/ld/eagle.app.v6.common.ld.h" -o "{build.path}/local.eagle.app.v6.common.ld"
+recipe.objcopy.eep.pattern=
+recipe.objcopy.hex.1.pattern="{runtime.tools.esptool.path}/{compiler.esptool.cmd}" -eo "{runtime.platform.path}/bootloaders/eboot/eboot.elf" -bo "{build.path}/{build.project_name}.bin" -bm {build.flash_mode} -bf {build.flash_freq} -bz {build.flash_size} -bs .text -bp 4096 -ec -eo "{build.path}/{build.project_name}.elf" -bs .irom0.text -bs .text -bs .data -bs .rodata -bc -ec
+recipe.objcopy.hex.2.pattern=
+recipe.output.save_file={build.project_name}.{build.variant}.bin
+recipe.output.tmp_file={build.project_name}.bin
+recipe.size.pattern="{compiler.path}{compiler.size.cmd}" -A "{build.path}/{build.project_name}.elf"
+recipe.size.regex=^(?:\.irom0\.text|\.text|\.data|\.rodata|)\s+([0-9]+).*
+recipe.size.regex.data=^(?:\.data|\.rodata|\.bss)\s+([0-9]+).*
+runtime.hardware.path=C:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266
+runtime.ide.version=10802
+runtime.os=windows
+runtime.platform.path=C:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0
+runtime.tools.arduinoOTA-1.1.1.path=D:\arduino-1.8.2\hardware\tools\avr
+runtime.tools.arduinoOTA-1.3.0.path=C:\Users\Ruilx\AppData\Local\Arduino15\packages\arduino\tools\arduinoOTA\1.3.0
+runtime.tools.arduinoOTA.path=C:\Users\Ruilx\AppData\Local\Arduino15\packages\arduino\tools\arduinoOTA\1.3.0
+runtime.tools.arm-none-eabi-gcc-4.8.3-2014q1.path=C:\Users\Ruilx\AppData\Local\Arduino15\packages\arduino\tools\arm-none-eabi-gcc\4.8.3-2014q1
+runtime.tools.arm-none-eabi-gcc.path=C:\Users\Ruilx\AppData\Local\Arduino15\packages\arduino\tools\arm-none-eabi-gcc\4.8.3-2014q1
+runtime.tools.avr-gcc-4.9.2-atmel3.5.4-arduino2.path=D:\arduino-1.8.2\hardware\tools\avr
+runtime.tools.avr-gcc-7.3.0-atmel3.6.1-arduino5.path=C:\Users\Ruilx\AppData\Local\Arduino15\packages\arduino\tools\avr-gcc\7.3.0-atmel3.6.1-arduino5
+runtime.tools.avr-gcc.path=C:\Users\Ruilx\AppData\Local\Arduino15\packages\arduino\tools\avr-gcc\7.3.0-atmel3.6.1-arduino5
+runtime.tools.avrdude-6.3.0-arduino17.path=C:\Users\Ruilx\AppData\Local\Arduino15\packages\arduino\tools\avrdude\6.3.0-arduino17
+runtime.tools.avrdude-6.3.0-arduino9.path=D:\arduino-1.8.2\hardware\tools\avr
+runtime.tools.avrdude.path=C:\Users\Ruilx\AppData\Local\Arduino15\packages\arduino\tools\avrdude\6.3.0-arduino17
+runtime.tools.bossac-1.6.1-arduino.path=C:\Users\Ruilx\AppData\Local\Arduino15\packages\arduino\tools\bossac\1.6.1-arduino
+runtime.tools.bossac.path=C:\Users\Ruilx\AppData\Local\Arduino15\packages\arduino\tools\bossac\1.6.1-arduino
+runtime.tools.ctags-5.8-arduino11.path=D:\arduino-1.8.2\tools-builder\ctags\5.8-arduino11
+runtime.tools.ctags.path=D:\arduino-1.8.2\tools-builder\ctags\5.8-arduino11
+runtime.tools.esptool-2.5.0-3-20ed2b9.path=C:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\tools\esptool\2.5.0-3-20ed2b9
+runtime.tools.esptool.path=C:\Users\Ruilx\AppData\Roaming/../Local/Arduino15/packages/esp8266/tools/esptool/2.5.0-3-20ed2b9
+runtime.tools.mkspiffs-2.5.0-3-20ed2b9.path=C:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\tools\mkspiffs\2.5.0-3-20ed2b9
+runtime.tools.mkspiffs.path=C:\Users\Ruilx\AppData\Roaming/../Local/Arduino15/packages/esp8266/tools/mkspiffs/2.5.0-3-20ed2b9
+runtime.tools.signing={runtime.platform.path}/tools/signing.py
+runtime.tools.xtensa-lx106-elf-gcc-2.5.0-3-20ed2b9.path=C:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\tools\xtensa-lx106-elf-gcc\2.5.0-3-20ed2b9
+runtime.tools.xtensa-lx106-elf-gcc.path=C:\Users\Ruilx\AppData\Roaming/../Local/Arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/2.5.0-3-20ed2b9
+serial.disableDTR=true
+serial.disableRTS=true
+software=ARDUINO
+tools.avrdude.path={runtime.tools.avrdude.path}
+tools.ctags.cmd.path={path}/ctags
+tools.ctags.path={runtime.tools.ctags.path}
+tools.ctags.pattern="{cmd.path}" -u --language-force=c++ -f - --c++-kinds=svpf --fields=KSTtzns --line-directives "{source_file}"
+tools.esptool.cmd=esptool.exe
+tools.esptool.network_cmd=python.exe
+tools.esptool.path={runtime.tools.esptool.path}
+tools.esptool.upload.network_pattern="{network_cmd}" "{runtime.platform.path}/tools/espota.py" -i "{serial.port}" -p "{network.port}" "--auth={network.password}" -f "{build.path}/{build.project_name}.bin"
+tools.esptool.upload.params.quiet=
+tools.esptool.upload.params.verbose=-vv
+tools.esptool.upload.pattern="{path}/{cmd}" {upload.verbose} -cd {upload.resetmethod} -cb {upload.speed} -cp "{serial.port}" {upload.erase_cmd} -ca 0x00000 -cf "{build.path}/{build.project_name}.bin"
+tools.esptool.upload.protocol=esp
+tools.mkspiffs.cmd=mkspiffs.exe
+tools.mkspiffs.path={runtime.tools.mkspiffs.path}
+upload.erase_cmd=
+upload.maximum_data_size=81920
+upload.maximum_size=1044464
+upload.resetmethod=nodemcu
+upload.speed=256000
+upload.tool=esptool
+upload.wait_for_upload_port=true
+version=2.5.0
+===info ||| Progress {0} ||| [100.00]
+===info ||| Progress {0} ||| [0.00]
+===info ||| Progress {0} ||| [2.94]
+===info ||| Progress {0} ||| [5.88]
+===info ||| Using board '{0}' from platform in folder: {1} ||| [generic C%3A%5CUsers%5CRuilx%5CAppData%5CLocal%5CArduino15%5Cpackages%5Cesp8266%5Chardware%5Cesp8266%5C2.5.0]
+===info ||| Using core '{0}' from platform in folder: {1} ||| [esp8266 C%3A%5CUsers%5CRuilx%5CAppData%5CLocal%5CArduino15%5Cpackages%5Cesp8266%5Chardware%5Cesp8266%5C2.5.0]
+===warn ||| WARNING: Category '{0}' in library {1} is not valid. Setting to '{2}' ||| [sensors ML8511 Uncategorized]
+===warn ||| WARNING: Category '{0}' in library {1} is not valid. Setting to '{2}' ||| [Device ParPrinter Uncategorized]
+===warn ||| WARNING: Category '{0}' in library {1} is not valid. Setting to '{2}' ||| [Device Radar Uncategorized]
+===info ||| Progress {0} ||| [8.82]
+===info ||| Progress {0} ||| [11.76]
+===info ||| Progress {0} ||| [14.71]
+===info ||| Progress {0} ||| [17.65]
+===info ||| Progress {0} ||| [20.59]
+===info ||| Detecting libraries used... ||| []
+===info ||| Progress {0} ||| [23.53]
+"C:\Users\Ruilx\AppData\Roaming/../Local/Arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/2.5.0-3-20ed2b9/bin/xtensa-lx106-elf-g++" -D__ets__ -DICACHE_FLASH -U__STRICT_ANSI__ "-IC:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0/tools/sdk/include" "-IC:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0/tools/sdk/lwip2/include" "-IC:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0/tools/sdk/libc/xtensa-lx106-elf/include" "-Ie:/MyQt/ArduinoESP8266/build/core" -c -w -Os -g -mlongcalls -mtext-section-literals -fno-rtti -falign-functions=4 -std=c++11  -ffunction-sections -fdata-sections -fexceptions -w -x c++ -E -CC -DF_CPU=160000000L -DLWIP_OPEN_SRC -DTCP_MSS=536 -DLWIP_FEATURES=1 -DLWIP_IPV6=0   -DARDUINO=10802 -DARDUINO_ESP8266_GENERIC -DARDUINO_ARCH_ESP8266 -DARDUINO_BOARD="ESP8266_GENERIC" -DLED_BUILTIN=2 -DFLASHMODE_DIO  -DESP8266 "-IC:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0\cores\esp8266" "-IC:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0\variants\generic" "e:\MyQt\ArduinoESP8266\build\sketch\WifiApi8266.ino.cpp" -o "nul"
+"C:\Users\Ruilx\AppData\Roaming/../Local/Arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/2.5.0-3-20ed2b9/bin/xtensa-lx106-elf-g++" -D__ets__ -DICACHE_FLASH -U__STRICT_ANSI__ "-IC:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0/tools/sdk/include" "-IC:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0/tools/sdk/lwip2/include" "-IC:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0/tools/sdk/libc/xtensa-lx106-elf/include" "-Ie:/MyQt/ArduinoESP8266/build/core" -c -w -Os -g -mlongcalls -mtext-section-literals -fno-rtti -falign-functions=4 -std=c++11  -ffunction-sections -fdata-sections -fexceptions -w -x c++ -E -CC -DF_CPU=160000000L -DLWIP_OPEN_SRC -DTCP_MSS=536 -DLWIP_FEATURES=1 -DLWIP_IPV6=0   -DARDUINO=10802 -DARDUINO_ESP8266_GENERIC -DARDUINO_ARCH_ESP8266 -DARDUINO_BOARD="ESP8266_GENERIC" -DLED_BUILTIN=2 -DFLASHMODE_DIO  -DESP8266 "-IC:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0\cores\esp8266" "-IC:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0\variants\generic" "e:\MyQt\ArduinoESP8266\build\sketch\main.cpp" -o "nul"
+"C:\Users\Ruilx\AppData\Roaming/../Local/Arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/2.5.0-3-20ed2b9/bin/xtensa-lx106-elf-g++" -D__ets__ -DICACHE_FLASH -U__STRICT_ANSI__ "-IC:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0/tools/sdk/include" "-IC:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0/tools/sdk/lwip2/include" "-IC:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0/tools/sdk/libc/xtensa-lx106-elf/include" "-Ie:/MyQt/ArduinoESP8266/build/core" -c -w -Os -g -mlongcalls -mtext-section-literals -fno-rtti -falign-functions=4 -std=c++11  -ffunction-sections -fdata-sections -fexceptions -w -x c++ -E -CC -DF_CPU=160000000L -DLWIP_OPEN_SRC -DTCP_MSS=536 -DLWIP_FEATURES=1 -DLWIP_IPV6=0   -DARDUINO=10802 -DARDUINO_ESP8266_GENERIC -DARDUINO_ARCH_ESP8266 -DARDUINO_BOARD="ESP8266_GENERIC" -DLED_BUILTIN=2 -DFLASHMODE_DIO  -DESP8266 "-IC:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0\cores\esp8266" "-IC:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0\variants\generic" "-IC:\Users\Ruilx\Documents\Arduino\libraries\Arduino-Temperature-Control-Library" "e:\MyQt\ArduinoESP8266\build\sketch\main.cpp" -o "nul"
+"C:\Users\Ruilx\AppData\Roaming/../Local/Arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/2.5.0-3-20ed2b9/bin/xtensa-lx106-elf-g++" -D__ets__ -DICACHE_FLASH -U__STRICT_ANSI__ "-IC:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0/tools/sdk/include" "-IC:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0/tools/sdk/lwip2/include" "-IC:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0/tools/sdk/libc/xtensa-lx106-elf/include" "-Ie:/MyQt/ArduinoESP8266/build/core" -c -w -Os -g -mlongcalls -mtext-section-literals -fno-rtti -falign-functions=4 -std=c++11  -ffunction-sections -fdata-sections -fexceptions -w -x c++ -E -CC -DF_CPU=160000000L -DLWIP_OPEN_SRC -DTCP_MSS=536 -DLWIP_FEATURES=1 -DLWIP_IPV6=0   -DARDUINO=10802 -DARDUINO_ESP8266_GENERIC -DARDUINO_ARCH_ESP8266 -DARDUINO_BOARD="ESP8266_GENERIC" -DLED_BUILTIN=2 -DFLASHMODE_DIO  -DESP8266 "-IC:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0\cores\esp8266" "-IC:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0\variants\generic" "-IC:\Users\Ruilx\Documents\Arduino\libraries\Arduino-Temperature-Control-Library" "-IC:\Users\Ruilx\Documents\Arduino\libraries\OneWire" "e:\MyQt\ArduinoESP8266\build\sketch\main.cpp" -o "nul"
+"C:\Users\Ruilx\AppData\Roaming/../Local/Arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/2.5.0-3-20ed2b9/bin/xtensa-lx106-elf-g++" -D__ets__ -DICACHE_FLASH -U__STRICT_ANSI__ "-IC:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0/tools/sdk/include" "-IC:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0/tools/sdk/lwip2/include" "-IC:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0/tools/sdk/libc/xtensa-lx106-elf/include" "-Ie:/MyQt/ArduinoESP8266/build/core" -c -w -Os -g -mlongcalls -mtext-section-literals -fno-rtti -falign-functions=4 -std=c++11  -ffunction-sections -fdata-sections -fexceptions -w -x c++ -E -CC -DF_CPU=160000000L -DLWIP_OPEN_SRC -DTCP_MSS=536 -DLWIP_FEATURES=1 -DLWIP_IPV6=0   -DARDUINO=10802 -DARDUINO_ESP8266_GENERIC -DARDUINO_ARCH_ESP8266 -DARDUINO_BOARD="ESP8266_GENERIC" -DLED_BUILTIN=2 -DFLASHMODE_DIO  -DESP8266 "-IC:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0\cores\esp8266" "-IC:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0\variants\generic" "-IC:\Users\Ruilx\Documents\Arduino\libraries\Arduino-Temperature-Control-Library" "-IC:\Users\Ruilx\Documents\Arduino\libraries\OneWire" "C:\Users\Ruilx\Documents\Arduino\libraries\Arduino-Temperature-Control-Library\DallasTemperature.cpp" -o "nul"
+"C:\Users\Ruilx\AppData\Roaming/../Local/Arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/2.5.0-3-20ed2b9/bin/xtensa-lx106-elf-g++" -D__ets__ -DICACHE_FLASH -U__STRICT_ANSI__ "-IC:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0/tools/sdk/include" "-IC:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0/tools/sdk/lwip2/include" "-IC:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0/tools/sdk/libc/xtensa-lx106-elf/include" "-Ie:/MyQt/ArduinoESP8266/build/core" -c -w -Os -g -mlongcalls -mtext-section-literals -fno-rtti -falign-functions=4 -std=c++11  -ffunction-sections -fdata-sections -fexceptions -w -x c++ -E -CC -DF_CPU=160000000L -DLWIP_OPEN_SRC -DTCP_MSS=536 -DLWIP_FEATURES=1 -DLWIP_IPV6=0   -DARDUINO=10802 -DARDUINO_ESP8266_GENERIC -DARDUINO_ARCH_ESP8266 -DARDUINO_BOARD="ESP8266_GENERIC" -DLED_BUILTIN=2 -DFLASHMODE_DIO  -DESP8266 "-IC:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0\cores\esp8266" "-IC:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0\variants\generic" "-IC:\Users\Ruilx\Documents\Arduino\libraries\Arduino-Temperature-Control-Library" "-IC:\Users\Ruilx\Documents\Arduino\libraries\OneWire" "C:\Users\Ruilx\Documents\Arduino\libraries\OneWire\OneWire.cpp" -o "nul"
+===info ||| Progress {0} ||| [26.47]
+===info ||| Progress {0} ||| [29.41]
+===info ||| Generating function prototypes... ||| []
+===info ||| Progress {0} ||| [32.35]
+"C:\Users\Ruilx\AppData\Roaming/../Local/Arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/2.5.0-3-20ed2b9/bin/xtensa-lx106-elf-g++" -D__ets__ -DICACHE_FLASH -U__STRICT_ANSI__ "-IC:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0/tools/sdk/include" "-IC:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0/tools/sdk/lwip2/include" "-IC:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0/tools/sdk/libc/xtensa-lx106-elf/include" "-Ie:/MyQt/ArduinoESP8266/build/core" -c -w -Os -g -mlongcalls -mtext-section-literals -fno-rtti -falign-functions=4 -std=c++11  -ffunction-sections -fdata-sections -fexceptions -w -x c++ -E -CC -DF_CPU=160000000L -DLWIP_OPEN_SRC -DTCP_MSS=536 -DLWIP_FEATURES=1 -DLWIP_IPV6=0   -DARDUINO=10802 -DARDUINO_ESP8266_GENERIC -DARDUINO_ARCH_ESP8266 -DARDUINO_BOARD="ESP8266_GENERIC" -DLED_BUILTIN=2 -DFLASHMODE_DIO  -DESP8266 "-IC:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0\cores\esp8266" "-IC:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0\variants\generic" "-IC:\Users\Ruilx\Documents\Arduino\libraries\Arduino-Temperature-Control-Library" "-IC:\Users\Ruilx\Documents\Arduino\libraries\OneWire" "e:\MyQt\ArduinoESP8266\build\sketch\WifiApi8266.ino.cpp" -o "e:\MyQt\ArduinoESP8266\build\preproc\ctags_target_for_gcc_minus_e.cpp"
+"D:\arduino-1.8.2\tools-builder\ctags\5.8-arduino11/ctags" -u --language-force=c++ -f - --c++-kinds=svpf --fields=KSTtzns --line-directives "e:\MyQt\ArduinoESP8266\build\preproc\ctags_target_for_gcc_minus_e.cpp"
+===info ||| Progress {0} ||| [35.29]
+===info ||| Compiling sketch... ||| []
+===info ||| Progress {0} ||| [38.24]
+===info ||| Progress {0} ||| [41.18]
+"C:\Users\Ruilx\AppData\Roaming/../Local/Arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/2.5.0-3-20ed2b9/bin/xtensa-lx106-elf-g++" -D__ets__ -DICACHE_FLASH -U__STRICT_ANSI__ "-IC:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0/tools/sdk/include" "-IC:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0/tools/sdk/lwip2/include" "-IC:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0/tools/sdk/libc/xtensa-lx106-elf/include" "-Ie:/MyQt/ArduinoESP8266/build/core" -c -w -Os -g -mlongcalls -mtext-section-literals -fno-rtti -falign-functions=4 -std=c++11 -MMD -ffunction-sections -fdata-sections -fexceptions -DF_CPU=160000000L -DLWIP_OPEN_SRC -DTCP_MSS=536 -DLWIP_FEATURES=1 -DLWIP_IPV6=0   -DARDUINO=10802 -DARDUINO_ESP8266_GENERIC -DARDUINO_ARCH_ESP8266 -DARDUINO_BOARD="ESP8266_GENERIC" -DLED_BUILTIN=2 -DFLASHMODE_DIO  -DESP8266 "-IC:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0\cores\esp8266" "-IC:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0\variants\generic" "-IC:\Users\Ruilx\Documents\Arduino\libraries\Arduino-Temperature-Control-Library" "-IC:\Users\Ruilx\Documents\Arduino\libraries\OneWire" "e:\MyQt\ArduinoESP8266\build\sketch\WifiApi8266.ino.cpp" -o "e:\MyQt\ArduinoESP8266\build\sketch\WifiApi8266.ino.cpp.o"
+"C:\Users\Ruilx\AppData\Roaming/../Local/Arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/2.5.0-3-20ed2b9/bin/xtensa-lx106-elf-g++" -D__ets__ -DICACHE_FLASH -U__STRICT_ANSI__ "-IC:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0/tools/sdk/include" "-IC:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0/tools/sdk/lwip2/include" "-IC:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0/tools/sdk/libc/xtensa-lx106-elf/include" "-Ie:/MyQt/ArduinoESP8266/build/core" -c -w -Os -g -mlongcalls -mtext-section-literals -fno-rtti -falign-functions=4 -std=c++11 -MMD -ffunction-sections -fdata-sections -fexceptions -DF_CPU=160000000L -DLWIP_OPEN_SRC -DTCP_MSS=536 -DLWIP_FEATURES=1 -DLWIP_IPV6=0   -DARDUINO=10802 -DARDUINO_ESP8266_GENERIC -DARDUINO_ARCH_ESP8266 -DARDUINO_BOARD="ESP8266_GENERIC" -DLED_BUILTIN=2 -DFLASHMODE_DIO  -DESP8266 "-IC:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0\cores\esp8266" "-IC:\Users\Ruilx\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.0\variants\generic" "-IC:\Users\Ruilx\Documents\Arduino\libraries\Arduino-Temperature-Control-Library" "-IC:\Users\Ruilx\Documents\Arduino\libraries\OneWire" "e:\MyQt\ArduinoESP8266\build\sketch\main.cpp" -o "e:\MyQt\ArduinoESP8266\build\sketch\main.cpp.o"
+===info ||| Using library {0} at version {1} in folder: {2} {3} ||| [Arduino-Temperature-Control-Library 3.8.1 C%3A%5CUsers%5CRuilx%5CDocuments%5CArduino%5Clibraries%5CArduino-Temperature-Control-Library ]
+===info ||| Using library {0} at version {1} in folder: {2} {3} ||| [OneWire 2.3.5 C%3A%5CUsers%5CRuilx%5CDocuments%5CArduino%5Clibraries%5COneWire ]
