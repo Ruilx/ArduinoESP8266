@@ -3,6 +3,9 @@
 
 typedef uint8_t Pin;
 
+#include <Arduino.h>
+#include <Wire.h>
+
 /*
  * One wire bus for access DS18B20 tempuature devices.
  */
@@ -30,5 +33,13 @@ typedef uint8_t Pin;
 #else
 #	define BTNPin 0
 #endif
+
+void setupGpio(){
+	pinMode(LEDPin, OUTPUT);
+	digitalWrite(LEDPin, LOW);
+	pinMode(BTNPin, INPUT_PULLUP);
+
+	Wire.begin(12, 14);
+}
 
 #endif // GPIODEFINE_H

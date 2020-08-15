@@ -9,7 +9,9 @@
 extern "C" {
 #include <include/wl_definitions.h>
 }
+#include <Esp.h>
 #include <ESP8266WiFiType.h>
+#include <user_interface.h>
 #else
 	// Saving real number string in return
 	char valueNumber[12] = {0};
@@ -19,8 +21,25 @@ class Constant{
 public:
 	/**
 	 * @brief toString
+	 * @param flashMode
+	 * @return const char *
+	 * Description for enum FlashMode_t from <Esp.h>
+	 */
+	static const char *toString(const FlashMode_t flashMode){
+		switch (flashMode){
+			case FM_QIO: return "QIO";
+			case FM_QOUT: return "QOUT";
+			case FM_DIO: return "DIO";
+			case FM_DOUT: return "DOUT";
+			case FM_UNKNOWN:
+			default: return "UNKNOWN";
+		}
+	}
+
+	/**
+	 * @brief toString
 	 * @param value
-	 * @return
+	 * @return const char *
 	 * Description for enum wl_status_t from <include/wl_definitions.h>
 	 */
 	static const char *toString(const wl_status_t value){
@@ -105,6 +124,7 @@ public:
 			case WIFI_EVENT_SOFTAPMODE_PROBEREQRECVED: return "WiFi_event_soft_AP_mode_prober_equal_received";
 			case WIFI_EVENT_MAX: return "WiFi_event_max";
 			case WIFI_EVENT_MODE_CHANGE: return "WiFi_event_mode_change";
+			default: return "WiFi_event_mode_unknown";
 		}
 	}
 
@@ -138,6 +158,179 @@ public:
 			case WIFI_DISCONNECT_REASON_AUTH_FAIL: return "WiFi_disconnect_reason_auth_fail";
 			case WIFI_DISCONNECT_REASON_ASSOC_FAIL: return "WiFi_disconnect_reason_assoc_fail";
 			case WIFI_DISCONNECT_REASON_HANDSHAKE_TIMEOUT: return "WiFi_disconnect_reason_handshake_timeout";
+			default: return "WiFi_disconnect_reason_unknown";
+		}
+	}
+
+	static const char *toString(const rst_reason value){
+		switch(value){
+			case REASON_DEFAULT_RST: return "RESET_reason_default_reset";
+			case REASON_WDT_RST: return "RESET_reason_hardware_watchdog_reset";
+			case REASON_EXCEPTION_RST: return "RESET_reason_exception_reset";
+			case REASON_SOFT_WDT_RST: return "RESET_reason_software_watchdog_reset";
+			case REASON_SOFT_RESTART: return "RESET_reason_system_restart";
+			case REASON_DEEP_SLEEP_AWAKE: return "RESET_reason_deep_sleep_awake";
+			case REASON_EXT_SYS_RST: return "RESET_from_external_signal";
+			default: return "RESET_unknown";
+		}
+	}
+
+	static const char *toString(const flash_size_map value){
+		switch(value){
+			case FLASH_SIZE_4M_MAP_256_256: return "Flash 4Mbits, Map 256KBytes + 256KBytes";
+			case FLASH_SIZE_2M: return "Flash 2Mbits, Map 256KBytes";
+			case FLASH_SIZE_8M_MAP_512_512: return "Flash 8Mbits, Map: 512KBytes + 512KBytes";
+			case FLASH_SIZE_16M_MAP_512_512: return "Flash 16MBits, Map: 512KBytes + 512KBytes";
+			case FLASH_SIZE_32M_MAP_512_512: return "Flash 32MBits, Map: 512KBytes + 512KBytes";
+			case FLASH_SIZE_16M_MAP_1024_1024: return "Flash 16MBits, Map: 1024KBytes + 1024KBytes";
+			case FLASH_SIZE_32M_MAP_1024_1024: return "Flash 32MBits, Map: 1024KBytes + 1024KBytes";
+			case FLASH_SIZE_64M_MAP_1024_1024: return "Flash 64MBits, Map: 1024KBytes + 1024KBytes";
+			case FLASH_SIZE_128M_MAP_1024_1024: return "Flash 128MBits, Map: 1024KBytes + 1024KBytes";
+			default: return "Flash and Map unknown";
+		}
+	}
+
+	static const char *toString(const AUTH_MODE value){
+		switch(value){
+			case AUTH_OPEN: return "AUTH_OPEN";
+			case AUTH_WEP: return "AUTH_WEP";
+			case AUTH_WPA_PSK: return "AUTH_WPA_PSK";
+			case AUTH_WPA2_PSK: return "AUTH_WPA2_PSK";
+			case AUTH_WPA_WPA2_PSK: return "AUTH_WPA_WPA2_PSK";
+			case AUTH_MAX: return "AUTH_MAX";
+			default: return "AUTH_unknown";
+		}
+	}
+
+	static const char *toString(const CIPHER_TYPE value){
+		switch(value){
+			case CIPHER_NONE: return "CIPHER_NONE";
+			case CIPHER_WEP40: return "CIPHER_WEP40";
+			case CIPHER_WEP104: return "CIPHER_WEP104";
+			case CIPHER_TKIP: return "CIPHER_TKIP";
+			case CIPHER_CCMP: return "CIPHER_CCMP";
+			case CIPHER_TKIP_CCMP: return "CIPHER_TKIP_CCMP";
+			case CIPHER_UNKNOWN:
+			default: return "CIPHER_UNKNOWN";
+		}
+	}
+
+	static const char *toString(const station_status_t value){
+		switch(value){
+			case STATION_IDLE: return "STATION_IDLE";
+			case STATION_CONNECTING: return "STATION_CONNECTING";
+			case STATION_WRONG_PASSWORD: return "STATION_WRONG_PASSWORD";
+			case STATION_NO_AP_FOUND: return "STATION_NO_AP_FOUND";
+			case STATION_CONNECT_FAIL: return "STATION_CONNECT_FAIL";
+			case STATION_GOT_IP: return "STATION_GOT_IP";
+			default: "STATION_unknown";
+		}
+	}
+
+	static const char *toString(const dhcp_status value){
+		switch(value){
+			case DHCP_STOPPED: return "DHCP_STOPPED";
+			case DHCP_STARTED: return "DHCP_STARTED";
+			default: return "DHCP_unknown";
+		}
+	}
+
+	static const char *toString(const dhcps_offer_option value){
+		switch(value){
+			case OFFER_START: return "OFFER_START";
+			case OFFER_ROUTER: return "OFFER_ROUTER";
+			case OFFER_END: return "OFFER_END";
+			default: return "OFFER_unknown";
+		}
+	}
+
+	static const char *toString(const phy_mode_t value){
+		switch(value){
+			case PHY_MODE_11B: return "PHY_MODE_11B";
+			case PHY_MODE_11G: return "PHY_MODE_11G";
+			case PHY_MODE_11N: return "PHY_MODE_11N";
+			default: return "PHY_MODE_unknown";
+		}
+	}
+
+	static const char *toString(const sleep_type_t value){
+		switch(value){
+			case NONE_SLEEP_T: return "NONE_SLEEP_T";
+			case LIGHT_SLEEP_T: return "LIGHT_SLEEP_T";
+			case MODEM_SLEEP_T: return "MODEM_SLEEP_T";
+			default: return "SLEEP_TYPE_unknown";
+		}
+	}
+
+#ifdef NONOSDK3V0
+	static const char *toString(const sleep_level_t value){
+		switch(value){
+			case MIN_SLEEP_T: return "MIN_SLEEP_T";
+			case MAX_SLEEP_T: return "MAX_SLEEP_T";
+			default: return "SLEEP_LEVEL_unknown";
+		}
+	}
+#endif
+
+	static const char *toString(const WPS_TYPE_t value){
+		switch(value){
+			case WPS_TYPE_DISABLE: return "WPS_TYPE_DISABLE";
+			case WPS_TYPE_PBC: return "WPS_TYPE_PBC";
+			case WPS_TYPE_PIN: return "WPS_TYPE_PIN";
+			case WPS_TYPE_DISPLAY: return "WPS_TYPE_DISPLAY";
+			case WPS_TYPE_MAX: return "WPS_TYPE_MAX";
+			default: return "WPS_TYPE_unknown";
+		}
+	}
+
+	static const char *toString(const wps_cb_status value){
+		switch(value){
+			case WPS_CB_ST_SUCCESS: return "WPS_CB_ST_SUCCESS";
+			case WPS_CB_ST_FAILED: return "WPS_CB_ST_FAILED";
+			case WPS_CB_ST_TIMEOUT: return "WPS_CB_ST_TIMEOUT";
+			case WPS_CB_ST_WEP: return "WPS_CB_ST_WEP";
+			case WPS_CB_ST_UNK:
+			default: return "WPS_CB_ST_UNK";
+		}
+	}
+
+	static const char *toString(const FIXED_RATE value){
+		switch(value){
+			case PHY_RATE_48: return "PHY_RATE_48";
+			case PHY_RATE_24: return "PHY_RATE_24";
+			case PHY_RATE_12: return "PHY_RATE_12";
+			case PHY_RATE_6: return "PHY_RATE_6";
+			case PHY_RATE_54: return "PHY_RATE_54";
+			case PHY_RATE_36: return "PHY_RATE_36";
+			case PHY_RATE_18: return "PHY_RATE_18";
+			case PHY_RATE_9: return "PHY_RATE_9";
+			default: return "PHY_RATE_unknown";
+		}
+	}
+
+	static const char *toString(const support_rate value){
+		switch(value){
+			case RATE_11B5M: return "RATE_11B5M";
+			case RATE_11B11M: return "RATE_11B11M";
+			case RATE_11B1M: return "RATE_11B1M";
+			case RATE_11B2M: return "RATE_11B2M";
+			case RATE_11G6M: return "RATE_11G6M";
+			case RATE_11G12M: return "RATE_11G12M";
+			case RATE_11G24M: return "RATE_11G24M";
+			case RATE_11G48M: return "RATE_11G48M";
+			case RATE_11G54M: return "RATE_11G54M";
+			case RATE_11G9M: return "RATE_11G9M";
+			case RATE_11G18M: return "RATE_11G18M";
+			case RATE_11G36M: return "RATE_11G36M";
+			default: return "RATE_unknown";
+		}
+	}
+
+	static const char*toString(const WIFI_COUNTRY_POLICY value){
+		switch(value){
+			case WIFI_COUNTRY_POLICY_AUTO: return "WIFI_COUNTRY_POLICY_AUTO";
+			case WIFI_COUNTRY_POLICY_MANUAL: return "WIFI_COUNTRY_POLICY_MANUAL";
+			default: return "WIFI_COUNTRY_POLICY_unknown";
 		}
 	}
 

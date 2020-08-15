@@ -9,11 +9,19 @@ HEADERS += \
     GpioDefine.h \
     About.h \
     Constant.h \
-    Wifi1.h
+    Wifi1.h \
+    core/mq.h \
+    Config.h \
+    Utils.h \
+    Arranger.h \
+    MessageQueue.h \
+    Cron.h \
+    Define.h
 
 SOURCES += main.cpp \
-	WifiApi8266.ino \
-	module/TemperatureDS18B20.cpp
+	ArduinoESP8266.ino \
+	module/TemperatureDS18B20.cpp \
+    core/mq.cpp
 
 DISTFILES += \
 	build.sh \
@@ -44,7 +52,9 @@ QMAKE_CXXFLAGS += \
 	-fdata-sections \
 	-fexceptions
 
-INCLUDEPATH += \
+INCLUDEPATH = \
+	C:/Users/Ruilx/AppData/Local/Arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/2.5.0-4-b40a506/xtensa-lx106-elf/include \
+	C:/Users/Ruilx/AppData/Local/Arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/2.5.0-4-b40a506/xtensa-lx106-elf/include/c++/4.8.2 \
 	C:/Users/Ruilx/AppData/Local/Arduino15/packages/esp8266/hardware/esp8266/2.7.1/tools/sdk/include \
 	C:/Users/Ruilx/AppData/Local/Arduino15/packages/esp8266/hardware/esp8266/2.7.1/tools/sdk/lwip2/include \
 	C:/Users/Ruilx/AppData/Local/Arduino15/packages/esp8266/hardware/esp8266/2.7.1/tools/sdk/libc/xtensa-lx106-elf/include \
@@ -57,10 +67,16 @@ INCLUDEPATH += \
 	C:/Users/Ruilx/AppData/Local/Arduino15/packages/esp8266/hardware/esp8266/2.7.1/libraries/ESP8266HTTPClient/src \
 	C:/Users/Ruilx/AppData/Local/Arduino15/packages/esp8266/hardware/esp8266/2.7.1/libraries/ESP8266mDNS/src \
 	C:/Users/Ruilx/AppData/Local/Arduino15/packages/esp8266/hardware/esp8266/2.7.1/libraries/ESP8266WiFiMesh/src \
+	C:/Users/Ruilx/Documents/Arduino/libraries/ArduinoSTL/src \
+	C:/Users/Ruilx/Documents/Arduino/libraries/TaskScheduler/src \
+	C:/Users/Ruilx/Documents/Arduino/libraries/Time \
 	C:/Users/Ruilx/Documents/Arduino/libraries \
 	C:/Users/Ruilx/Documents/Arduino/libraries/OneWire \
 	C:/Users/Ruilx/Documents/Arduino/libraries/uRTCLib/src \
 	C:/Users/Ruilx/Documents/Arduino/libraries/ArduinoJson/src \
 	C:/Users/Ruilx/Documents/Arduino/libraries/NTPClient \
-	C:\Users\Ruilx\Documents\Arduino\libraries\Arduino-Temperature-Control-Library \
+	C:/Users/Ruilx/Documents/Arduino/libraries/Arduino-Temperature-Control-Library \
+	C:/Users/Ruilx/Documents/Arduino/libraries/ArduinoJson/src \
+	C:/Users/Ruilx/Documents/Arduino/libraries/ArduinoQueue \
+	C:/Users/Ruilx/Documents/Arduino/libraries/DoubleResetDetect/src \
 	$$PWD
