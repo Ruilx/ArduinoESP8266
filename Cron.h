@@ -34,13 +34,16 @@
 // "1,3,6,8 * * * *" means "1, 3, 6, 8 minute in each hour"
 
 /* Usage:
- *
- *
+ * cron.addCron("TASK NAME", "* * * * *", []()->bool{ printf("Callback function body"); return true; });
+ * when time cames it will create a plan task to arranger.
  */
 
-typedef std::functional<bool()> cronjobCallback;
+#include <functional>
+
+typedef std::function<bool()> cronjobCallback;
 
 class Cron{
+public:
 	typedef struct CronContent_t{
 		uint8_t asterisk = 0;
 		uint64_t numbers = 0;
@@ -59,6 +62,8 @@ class Cron{
 		ReturnNormal = 0,
 		ReturnSyntaxError = 1,
 		ReturnCronNotFound,
+		ReturnCallbackError,
+		ReturnCronWasFull,
 	} ReturnCode;
 
 	typedef struct Cronjob_t{
@@ -72,15 +77,8 @@ class Cron{
 
 private:
 	std::vector<Cronjob>  cronjobs;
-	std::vector<Cronjob*> minuteRecord[60];
-	std::vector<Cronjob*> hourRecord[24];
-	std::vector<Cronjob*> dayRecord[31];
-	std::vector<Cronjob*> monthRecord[12];
-	std::vector<Cronjob*> weekRecord[7];
 	uint8_t maxJobs = 32;
 	uint8_t priority = 0;
-
-	CronContent content[5];
 
 	typedef enum {
 		PartNone,
@@ -93,7 +91,7 @@ private:
 		PartError,
 	} ContentPart;
 
-	ContentPart parsePart(const char **ptr, const char *ptrEnd, uint8 *number){
+	ContentPart parsePart(const char **ptr, const char *ptrEnd, uint8_t *number){
 		ContentPart part = PartNone;
 		*number = 0;
 		while((*ptr) < ptrEnd){
@@ -127,7 +125,7 @@ private:
 						return part;
 					}
 				case '/':
-					if(part == PartSlash){
+					if(part == PartNone){
 						(*ptr)++;
 						return PartSlash;
 					}else{
@@ -155,16 +153,19 @@ private:
 		uint8_t p = 0;
 		const char *cronptr = job.cron.begin();
 		const char *cronptrE = job.cron.end();
+		//const char *cronptr = job.cron.constBegin();
+		//const char *cronptrE = job.cron.constEnd();
 		uint8_t number = 0;
 		uint8_t oldNumber = 0xFF;
 		ContentPart part = PartNone;
 		bool minusState = false;
 		bool commaState = false;
 		bool slashState = false;
+		bool beforeFirst = true;
 		while((part = this->parsePart(&cronptr, cronptrE, &number)) != PartNone){
 			switch(part){
 				case PartNext:
-					if(p == 0){
+					if(p == 0 && beforeFirst){
 						continue;
 					}else if(p < 5){
 						p++;
@@ -172,7 +173,7 @@ private:
 						// Partitions greater than 5 and extra expressions will be ignored and report syntax error.
 						break;
 					}
-					break;
+					continue;
 				case PartAsterisk:
 					if(content[p].asterisk == 0){
 						content[p].asterisk = 1;
@@ -212,24 +213,31 @@ private:
 					}
 					break;
 				case PartNumber:
-					if(p == ContentMinute && number >= 60){
-						return ReturnSyntaxError;
-					}else if(p == ContentHour && number >= 24){
-						return ReturnSyntaxError;
-					}else if(p == ContentDay && (number > 31 || number == 0)){
-						return ReturnSyntaxError;
-					}else if(p == ContentMonth && (number > 12 || number == 0)){
-						return ReturnSyntaxError;
-					}else if(p == ContentWeek && number >= 7){
-						return ReturnSyntaxError;
+					if(slashState){
+						if(number <= 0 || number >= 60){
+							return ReturnSyntaxError;
+						}
+					}else{
+						if(p == ContentMinute && number >= 60){
+							return ReturnSyntaxError;
+						}else if(p == ContentHour && number >= 24){
+							return ReturnSyntaxError;
+						}else if(p == ContentDay && (number > 31 || number == 0)){
+							return ReturnSyntaxError;
+						}else if(p == ContentMonth && (number > 12 || number == 0)){
+							return ReturnSyntaxError;
+						}else if(p == ContentWeek && number >= 7){
+							return ReturnSyntaxError;
+						}
 					}
+
 					if(slashState == false){
 						uint64_t numloc = (1 << number);
 						if(content[p].numbers & numloc){
 							// number list already have
 						}else{
 							if(commaState){
-								content[p].numbers &= (1 << number);
+								content[p].numbers |= (1 << number);
 								commaState = false;
 								oldNumber = number;
 							}else if(minusState){
@@ -255,10 +263,15 @@ private:
 						}
 					}else{
 						content[p].slashNumber = number;
+						slashState = false;
 					}
 					break;
 				default:
 					return ReturnSyntaxError;
+			}
+
+			if(beforeFirst){
+				beforeFirst = false;
 			}
 		}
 
@@ -270,8 +283,17 @@ private:
 			if(content[i].asterisk){
 				if(content[i].slashNumber > 0){
 					// if any content has asterisk, ignore any number specified, slashing from 0 on
-					while(minnumber <= 60){
-						number &= (1 << minnumber);
+					uint8_t maxUnit = 59;
+					switch(i){
+						case 1: maxUnit = 23; break;
+						case 2: maxUnit = 31; break;
+						case 3: maxUnit = 12; break;
+						case 4: maxUnit = 6; break;
+						case 0:
+						default: break;
+					}
+					while(minnumber <= maxUnit){
+						number |= (uint64_t(1) << minnumber);
 						minnumber += content[i].slashNumber;
 					}
 				}else{
@@ -294,7 +316,7 @@ private:
 					}
 				}
 				content[i].numbers = number;
-			}else if(getMinNumber > 0){
+			}else if(getMinNumber > 0 && content[i].slashNumber > 0){
 				while(!(getMinNumber & 1)){
 					minnumber++;
 					getMinNumber >>= 1;
@@ -310,13 +332,19 @@ private:
 					// NewNum| 0000 0001000010 0001000010 |
 					//       +----------------------------+
 					// Result = 1,6,11,16 Hour started
-					if(content[i].numbers & (1 << minnumber)){
-						number &= (1 << minnumber);
+					uint64_t pNum = (uint64_t(1) << minnumber);
+					if(content[i].numbers & pNum){
+						number |= pNum;
 					}
 					minnumber += content[i].slashNumber;
 				}
 				content[i].numbers = number;
 			}
+		}
+
+		// Sync week 0/7 double check
+		if(content[4].numbers & 0x01 || content[4].numbers & 0x80){
+			content[4].numbers |= 0x81;
 		}
 
 		return ReturnNormal;
@@ -335,19 +363,26 @@ private:
 	}
 
 public:
-	Cron(uint8_t maxJobs = 32, priority = 0){
+	Cron(uint8_t maxJobs = 32, uint8_t priority = 0){
 		this->maxJobs = maxJobs;
 		this->priority = priority;
 	}
 
 	ReturnCode addCron(const String &name, const String &cron, cronjobCallback callback){
+		if(this->cronjobs.size() >= this->maxJobs){
+			return ReturnCronWasFull;
+		}
 		Cronjob job;
 		job.cron = cron;
 		job.cronName = name;
-		ReturnCode returnCode = this->parseCron(job);
-		job.error = returnCode;
+		if(callback == nullptr){
+			job.error = ReturnCallbackError;
+		}else{
+			job.error = this->parseCron(job);
+		}
+
 		this->cronjobs.push_back(job);
-		return returnCode;
+		return job.error;
 	}
 
 	ReturnCode removeCron(const String &name){
@@ -360,7 +395,7 @@ public:
 		return ReturnCronNotFound;
 	}
 
-	void setEnable(const String &name, bool enable){
+	ReturnCode setEnable(const String &name, bool enable){
 		std::vector<Cronjob>::iterator i = this->cronjobs.begin();
 		bool found = this->findCronjob(name, i);
 		if(found && i != this->cronjobs.end()){
@@ -392,13 +427,17 @@ public:
 				if(!((*i).content[ContentWeek].numbers & datetime.week)){
 					break;
 				}
-				list.push_back(i);
+				list.push_back(&(*i));
 			}while(false);
 		}
 		return list;
 	}
 
+	const std::vector<Cronjob> &getCronjobs() const{
+		return this->cronjobs;
+	}
+};
 
-}
+extern Cron cron;
 
 #endif // CRON_H
